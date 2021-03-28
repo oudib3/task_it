@@ -1,0 +1,12 @@
+.home {
+    .rgba-gradient {
+        background: rgb(2,0,36);
+        background: linear-gradient(37deg, rgb(7, 31, 70)0%, rgba(2, 31, 129, 0.527)36%, rgb(0, 160, 192) 100%)
+    }
+
+    .mask {
+        height: 100%;
+        width:100%;
+        color: white;
+    }
+}
