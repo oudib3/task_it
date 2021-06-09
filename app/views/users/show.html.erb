@@ -1,3 +1,18 @@
-<h1> You are logged In ! </h1>
-
-<%= link_to 'log out', sessions_path, method: :delete, class: 'btn btn-danger' %>
+<div class="container-xl vh-100 bg-light">
+    <div class="container-xl h-100 d-flex flex-row justify-content-center my-3 py-5">
+        <div class="row col-sm-12 col-md-3 bg-light rounded-left d-flex flex-column border-right px-5 py-5">
+            <div class="row d-flex text-wrap flex-row justify-content-center align-items-around my-auto">
+                <h4> PROJECTS </h4>
+                <% @projects&.each do |project| %>
+                    <div class="col-12 text-center my-1">
+                        <%= link_to "#{project.name}", project_path(project), class: 'dark-text text-uppercase'%>
+                    </div>
+                <%end%>
+                <%= link_to 'new project', new_project_path, class: 'btn btn-info col-8 col-sm-8' %>
+            </div>
+        </div>
+        <div class="row col-sm-0 col-md-9 bg-light rounded-right d-flex justify-content-center align-items-center mx-auto">
+            <div class="container bg-light rounded overflow-auto col-12">
+            </div>
+    </div>
+</div>
