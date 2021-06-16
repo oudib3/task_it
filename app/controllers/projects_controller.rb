@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
 
     def show
         project
+        @tasks = project.tasks.reverse
     end
 
     private
@@ -24,4 +25,5 @@ class ProjectsController < ApplicationController
     def project
         @project ||= Project.find(params[:id])
     end
+
 end

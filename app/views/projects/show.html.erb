@@ -1,3 +1,16 @@
 <div class="container-xl vh-100 bg-light">
     <p> <%= "It's a #{@project.name} page"%> </p>
+
+    <div class='tasks-container bg-dark'>
+    <%= link_to 'new task', new_project_task_path(@project), class: 'btn btn-info'%>
+        <% if @tasks %>
+            <% @tasks.each do |task| %>
+                <div class='task-card'> 
+                   <p class='task-title'> <%= "#{ task.title }"  %> </p>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
 </div>
+
+<%#idea! tasks overflow on leftside %>

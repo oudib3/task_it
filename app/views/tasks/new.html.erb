@@ -1,0 +1,10 @@
+<div class='container vh-100 bg-light'>
+    <%= render partial: "shared/errors", locals: {instance: @form} %>
+    
+    <div class='container d-flex flex-row bg-dark justify-content-center align-items-center'>
+        <%= form_tag project_tasks_path do %>
+            <%= text_field_tag :title, nil, placeholder: 'new title', class: 'form-control' %>
+            <%= submit_tag :submit, class: 'btn btn-info btn-block'%>
+        <% end %>
+    </div>
+</div>
