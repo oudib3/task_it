@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
 
     def show
         project
+        @tasks = project.tasks.reverse
     end
 
     private
