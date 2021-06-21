@@ -10,13 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2021_06_09_151501) do
-=======
-
-ActiveRecord::Schema.define(version: 2021_06_09_151501) do
-
->>>>>>> 8bd2ef73ff1e50c5579fabf0b3932f0b31c443d7
+ActiveRecord::Schema.define(version: 2021_06_21_132327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +36,7 @@ ActiveRecord::Schema.define(version: 2021_06_09_151501) do
     t.bigint "project_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "due_date", precision: 6
     t.index ["project_id"], name: "index_tasks_on_project_id"
   end
 

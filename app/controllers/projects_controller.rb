@@ -25,8 +25,4 @@ class ProjectsController < ApplicationController
     def project
         @project ||= Project.find(params[:id])
     end
-<<<<<<< HEAD
-=======
-
->>>>>>> 8bd2ef73ff1e50c5579fabf0b3932f0b31c443d7
 end
