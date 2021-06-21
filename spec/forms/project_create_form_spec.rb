@@ -34,7 +34,7 @@ RSpec.describe ProjectCreateForm do
                project = Project.create!(name: 'project')
                project.memberships.create(user_id: user.id, role: 20)
             }
-          
+
             let(:params) { {user: user, name: 'project'} }
             it "don't save" do
                 expect(call).to eq false

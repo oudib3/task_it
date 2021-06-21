@@ -16,7 +16,7 @@ RSpec.describe UserSignInForm do
 
         context 'and invalid credentials' do
             let(:params) {{password: 'badpasswd'}}
-            it 'dont return user and add error to form' do
+            it 'dont return user and adds error to form' do
                 expect(call).to eq false
                 expect(form.errors[:base]).to include("Invalid Credentials")
             end
