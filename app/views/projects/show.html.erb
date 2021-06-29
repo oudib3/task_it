@@ -12,11 +12,12 @@
         <%= link_to 'new task', new_project_task_path(@project)%>
         <% if @tasks %>
             <% @tasks.each do |task| %>
-                <div class='task-card d-flex flex-row'> 
+                <div class='task-card d-flex flex-row'>
+                    <% task_decorator = decorate(task)%>
                    <p class='task-title col-4 '> <%= "#{ task.title }"  %> </p>
                    <p class='task-title col-3'> <%= "#{ task.title }"  %> </p>
                    <p class='task-title col-3'> <%= "#{ task.created_at }"  %> </p>
-                   <p class='task-title col-2'> <%= "#{ task.created_at }"  %> </p>
+                   <p class='task-title col-2'> <%= "#{ task_decorator.time_remaining}"%> </p>
                 </div>
             <% end %>
         <% end %>

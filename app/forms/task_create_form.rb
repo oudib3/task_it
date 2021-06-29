@@ -1,9 +1,9 @@
 class TaskCreateForm
     include ActiveModel::Model
     
-    attr_accessor :title, :project
+    attr_accessor :title, :project, :due_date
 
-    validates :title, :project, presence: true
+    validates :title, :project, :due_date, presence: true
     validate :title_is_unique?
 
     def save
@@ -18,7 +18,7 @@ class TaskCreateForm
     private
 
     def create_task
-        project.tasks.create!(title: title)
+        project.tasks.create!(title: title, due_date: due_date)
     end
 
     def title_is_unique?

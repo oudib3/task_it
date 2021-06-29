@@ -14,7 +14,7 @@ class TasksController < ApplicationController
     private
 
     def task_params
-        params.permit(:title).merge(project: project)
+        params.permit(:title, :due_date).merge(project: project)
     end
 
     def project
