@@ -11,6 +11,16 @@ class TasksController < ApplicationController
         end
     end
 
+    def show
+        project
+        task
+
+        respond_to do |f|
+            f.js
+            f.html
+        end
+    end
+
     private
 
     def task_params
@@ -19,5 +29,9 @@ class TasksController < ApplicationController
 
     def project
         @project ||= Project.find(params[:project_id])
+    end
+
+    def task
+        @task = Task.find(params[:id])
     end
 end
