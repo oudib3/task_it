@@ -2,7 +2,7 @@
     <div class="col-2 vh-100 d-flex justify-content-center align-items-center text-center my-auto">
         <%= link_to "Home", user_path(current_user), class: "btn btn-info"%>
     </div>
-    <div class='tasks-container vh-100 col-10 bg-light py-5'>
+    <div class='col-10 vh-100 col-10 bg-light py-5'>
         <div class="grid-pattern border-bottom d-flex flex-row mb-3">
             <div class="col-4 border-right">Title</div>
             <div class="col-3 border-right">Status</div>
@@ -12,13 +12,15 @@
         <%= link_to 'new task', new_project_task_path(@project)%>
         <% if @tasks %>
             <% @tasks.each do |task| %>
-                <div class='task-card d-flex flex-row'>
-                    <% task_decorator = decorate(task)%>
-                   <p class='task-title col-4 '> <%= "#{ task.title }"  %> </p>
-                   <p class='task-title col-3'> <%= "#{ task.title }"  %> </p>
-                   <p class='task-title col-3'> <%= "#{ task.created_at }"  %> </p>
-                   <p class='task-title col-2'> <%= "#{ task_decorator.time_remaining}"%> </p>
-                </div>
+                <% task_decorator = decorate(task)%>
+                <%= link_to project_task_path(@project, task), class: 'task-card' do%>
+                    <span class='d-flex flex-row'>
+                       <p class='task-title col-4 my-auto'> <%= "#{ task.title }"  %> </p>
+                       <p class='task-title col-3 my-auto'> <%= "#{ task.title }"  %> </p>
+                       <p class='task-title col-3 my-auto'> <%= "#{ task.created_at }"  %> </p>
+                       <p class='task-title col-2 my-auto'> <%= "#{ task_decorator.time_remaining}"%> </p>
+                    </span>
+                <% end %>
             <% end %>
         <% end %>
     </div>
