@@ -10,15 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_21_132327) do
+ActiveRecord::Schema.define(version: 2021_07_07_131309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "descriptions", force: :cascade do |t|
+    t.string "content", null: false
+    t.string "descriptable_type", null: false
+    t.bigint "descriptable_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["descriptable_type", "descriptable_id"], name: "index_descriptions_on_descriptable"
+  end
+
   create_table "memberships", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "project_id"
-    t.integer "role"
+    t.integer "role", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["project_id"], name: "index_memberships_on_project_id"

@@ -14,11 +14,6 @@ class TasksController < ApplicationController
     def show
         project
         task
-
-        respond_to do |f|
-            f.js
-            f.html
-        end
     end
 
     private
