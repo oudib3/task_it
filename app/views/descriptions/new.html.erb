@@ -1,0 +1,6 @@
+<%= form_tag description_path do%>
+    <%= hidden_field_tag :descriptable_id, @descriptable_params[:descriptable_id] %>
+    <%= hidden_field_tag :descriptable_type, @descriptable_params[:descriptable_type] %>
+    <%= text_field_tag :content, nil, placeholder: 'Add description to your task', class: 'form-control' %>
+    <%= submit_tag :submit, class: 'btn btn-info' %>
+<% end %>

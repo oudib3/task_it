@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :tasks, only: [:new, :create, :show]
   end
   
+  resource :description, only: [:new, :create]
+  
   resources :sessions, only: [:new, :create]
   resource :sessions, only: [:destroy]
 end

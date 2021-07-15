@@ -8,6 +8,15 @@
             <% task_decorator = decorate(@task)%>
             <p> <%= @task.title %> <p>
             <p> Due date: <%= task_decorator.time_remaining %> </p>
+            <p> Descriptions </p>
+            <% unless @task.descriptions.nil? %>
+                <div class='task-descriptions-container container-fluid d-flex flex-column bg-light rounded'>
+                    <% @task.descriptions.each do |desc| %>
+                        <p class='task-description my-auto d-flex flex-column align-items-start border-bottom rounded'><%= desc.content %> </p>
+                    <% end %>
+                </div>
+            <% end %>
+            <%= link_to "Add description", new_description_path(descriptable_id: @task.id, descriptable_type: @task.class) %>
         </div>
     </div>
 </div>
