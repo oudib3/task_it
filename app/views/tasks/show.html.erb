@@ -5,9 +5,8 @@
 
     <div class="col-10 vh-100 d-flex justify-content-center align-items-center bg-light p-0">
         <div class="task-window p-3">
-            <% task_decorator = decorate(@task)%>
             <p> <%= @task.title %> <p>
-            <p> Due date: <%= task_decorator.time_remaining %> </p>
+            <p> Due date: <%= @task.time_remaining %> </p>
             <p> Descriptions </p>
             <% unless @task.descriptions.nil? %>
                 <div class='task-descriptions-container container-fluid d-flex flex-column bg-light rounded'>

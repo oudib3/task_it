@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
 
     def show
         project
-        @tasks = project.tasks.reverse
+        @tasks = TaskDecorator.decorate_collection(project.tasks.reverse)
     end
 
     private

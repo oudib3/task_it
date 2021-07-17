@@ -10,17 +10,14 @@
             <div class="col-2">Due date</div> <br>
         </div>
         <%= link_to 'new task', new_project_task_path(@project)%>
-        <% if @tasks %>
-            <% @tasks.each do |task| %>
-                <% task_decorator = decorate(task)%>
-                <%= link_to project_task_path(@project, task), class: 'task-card' do%>
-                    <span class='d-flex flex-row'>
-                       <p class='task-title col-4 my-auto'> <%= "#{ task.title }"  %> </p>
-                       <p class='task-title col-3 my-auto'> <%= "#{ task.title }"  %> </p>
-                       <p class='task-title col-3 my-auto'> <%= "#{ task.created_at }"  %> </p>
-                       <p class='task-title col-2 my-auto'> <%= "#{ task_decorator.time_remaining}"%> </p>
-                    </span>
-                <% end %>
+        <% @tasks.each do |task| %>
+            <%= link_to project_task_path(@project, task), class: 'task-card' do%>
+                <span class='d-flex flex-row'>
+                   <p class='task-title col-4 my-auto'> <%= "#{ task.title }"  %> </p>
+                   <p class='task-title col-3 my-auto'> <%= "#{ task.title }"  %> </p>
+                   <p class='task-title col-3 my-auto'> <%= "#{ task.created_at }"  %> </p>
+                   <p class='task-title col-2 my-auto'> <%= "#{ task.time_remaining}"%> </p>
+                </span>
             <% end %>
         <% end %>
     </div>
