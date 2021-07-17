@@ -27,6 +27,6 @@ class TasksController < ApplicationController
     end
 
     def task
-        @task = Task.find(params[:id])
+        @task = Task.find(params[:id]).decorate
     end
 end

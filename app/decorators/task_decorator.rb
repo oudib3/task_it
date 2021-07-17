@@ -1,4 +1,6 @@
-class TaskDecorator < BaseDecorator
+class TaskDecorator < Draper::Decorator
+   delegate_all
+
     def time_remaining
         if days_remaining < 1
             return "ASAP"
