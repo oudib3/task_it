@@ -1,9 +1,13 @@
 class TasksController < ApplicationController
+
     def new
+        @task = Task.new
+        raise Pundit::NotAuthorizedError unless TaskPolicy.new(current_user, member, @task).new?
     end
 
     def create
         @form = TaskCreateForm.new(task_params)
+        raise Pundit::NotAuthorizedError unless TaskPolicy.new(current_user, member, @form).create?
         if @form.save
             redirect_to project_path(project)
         else
@@ -13,7 +17,12 @@ class TasksController < ApplicationController
 
     def show
         project
-        task
+        task_decorator
+        raise Pundit::NotAuthorizedError unless TaskPolicy.new(current_user, member, task).show?
+        respond_to do |f|
+            f.html
+            f.json { render json: task }
+        end
     end
 
     private
@@ -27,6 +36,14 @@ class TasksController < ApplicationController
     end
 
     def task
-        @task = Task.find(params[:id]).decorate
+        @task ||= Task.find(params[:id])
+    end
+    
+    def task_decorator
+        @task_decorator = task.decorate
+    end
+
+    def member
+        @member ||= Membership.find_by(user_id: current_user, project_id: project)
     end
 end
