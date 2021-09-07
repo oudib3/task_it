@@ -15,6 +15,16 @@ class TasksController < ApplicationController
         end
     end
 
+    def edit
+    end
+
+    def update
+    end
+
+    def destroy
+        
+    end
+
     def show
         project
         task_decorator
